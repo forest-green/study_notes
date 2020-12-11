@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MVVM object.defineProperty实践</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" id="iptChange" name="message">
+		<p id="iptValue">{{message}}</p>
+	</div>
+
+
+	<script type="text/javascript">
+		let iptChange = document.getElementById('iptChange');
+		let iptValue = document.getElementById('iptValue');
+		
+		iptValue.addEventListener('click', function() {
+			data.message = 'messahe'
+		})
+		let data = {
+			message: 'test'
+		}
+		Object.defineProperty(data, 'message', {
+			get() {
+				return this.message
+			},
+			set(newValue) {
+				console.log(newValue)
+			}
+		})
+	</script>
+</body>
+</html>

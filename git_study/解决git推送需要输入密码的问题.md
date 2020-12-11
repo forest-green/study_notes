@@ -10,3 +10,4 @@ git config --global credential.helper store
 ```
 
 然后会生成一个文本，上面记录了你输入的账号和密码。这个不需要我们找到文件进行输入，只需要在操作一次git pull或者push，输入账号密码，然后它就会记录下来你所输入的账号密码。
+

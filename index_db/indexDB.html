@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试indexedDB</title>
+</head>
+<body>
+	<div id="notifications"></div>
+<script type="text/javascript">
+	const note = document.getElementById('notifications');
+	let db;
+	let newItem = [
+      { taskTitle: "", hours: 0, minutes: 0, day: 0, month: "", year: 0, notified: "no" }
+    ];
+    
+	window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+
+	window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+
+	window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
+
+	var DBOpenRequest = window.indexedDB.open("toDoList", 4);
+
+	DBOpenRequest.onerror = function(event) {
+	  note.innerHTML += '<li>Error loading database.</li>';
+	};
+
+	DBOpenRequest.onsuccess = function(event) {
+	  note.innerHTML += '<li>Database initialised.</li>';
+
+	  // store the result of opening the database in the db variable. This is used a lot later on, for opening transactions and suchlike.
+	  db = request.result;
+	};
+</script>
+</body>
+</html>

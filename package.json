@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/forest-green/study_notes/issues"
   },
-  "homepage": "https://github.com/forest-green/study_notes#readme"
+  "homepage": "https://github.com/forest-green/study_notes#readme",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "cucumber": "^7.0.0-rc.0",
+    "puppeteer": "^8.0.0",
+    "puppeteer-core": "^8.0.0",
+    "request": "^2.88.2"
+  }
 }

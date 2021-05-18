@@ -3,7 +3,7 @@
  * @Author: dongzhiwen
  * @since: 2021-04-15 15:49:50
  * @LastAuthor: dongzhiwen
- * @lastTime: 2021-04-15 16:19:58
+ * @lastTime: 2021-04-16 09:55:10
  */
 /*
  * @lc app=leetcode.cn id=21 lang=javascript
@@ -65,16 +65,28 @@
  *     this.next = (next===undefined ? null : next)
  * }
  */
+
+/**
+ * 
+ * 
+ * */  
 /**
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @return {ListNode}
  */
 var mergeTwoLists = function(l1, l2) {
-  if (l1.length === 0 && l2.length === 0) return []
-  if (l1.length === 0 && l2.length > 0) return l2
-  if (l1.length > 0 && l2.length === 0) return l1
-  console.log(l1.next,l2.val)
+  if (l1 == null) {
+    return l2
+  } else if (l2 == null) {
+    return l1
+  } else if (l1.val < l2.val) {
+    l1.next = mergeTwoLists(l1.next, l2)
+    return l1
+  } else {
+    l2.next =  mergeTwoLists(l1, l2.next)
+    return l2
+  }
 };
 // @lc code=end
 
